@@ -17,7 +17,7 @@ export async function POST(request) {
     const { name, email, message } = await request.json();
 
     const info = await transporter.sendMail({
-      from: '"Maddison Foo Koch" <maddison53@ethereal.email>',
+      from: '"Austyn Vandervort" <austyn.vandervort28@ethereal.email>',
       to: "munnethgill@gmail.com",
       subject: "CONTACT FORM SUBMISSION",
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // plain‑text body
