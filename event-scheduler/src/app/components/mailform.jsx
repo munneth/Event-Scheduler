@@ -1,16 +1,46 @@
-import Form from "next/form";
+"use client";
 import styles from "./mailform.module.scss";
+import Form from "next/form";
 
 export default function MailForm() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch("/api/nodemailer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message")
+        }),
+      });
+      
+      if (response.ok) {
+        alert("Message sent!");
+        e.target.reset();
+      } else {
+        alert("Failed to send message");
+      }
+    } catch (error) {
+      alert("Error sending message");
+    }
+  };
+
   return (
     <>
-      <Form className={styles.form}>
-        <input type="text" name="name" placeholder="Name" />
-        <input type="email" name="email" placeholder="Email" />
-        <input
-          type="message/question"
-          name="message/question"
+      <Form className={styles.form} onSubmit={handleSubmit}>
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea
+          name="message"
           placeholder="Message/Question"
+          rows="4"
+          required
         />
         <button type="send">Send</button>
       </Form>
