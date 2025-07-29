@@ -1,5 +1,30 @@
 .form {
   display: flex;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
   flex-direction: column;
   gap: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.input {
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgb(148, 175, 199);
+  color: black;
+}
+
+.textarea {
+  background-color: rgb(148, 175, 199);
+  color: black;
+}
+
+.button {
+  background-color: rgb(3, 27, 48);
+  height: 50px;
+  width: 33.333%;
+  margin: 0 auto;
+  border-radius: 10px;
 }

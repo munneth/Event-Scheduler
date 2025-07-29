@@ -6,7 +6,7 @@ export default function MailForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    
+
     try {
       const response = await fetch("/api/nodemailer", {
         method: "POST",
@@ -16,10 +16,10 @@ export default function MailForm() {
         body: JSON.stringify({
           name: formData.get("name"),
           email: formData.get("email"),
-          message: formData.get("message")
+          message: formData.get("message"),
         }),
       });
-      
+
       if (response.ok) {
         alert("Message sent!");
         e.target.reset();
@@ -34,15 +34,30 @@ export default function MailForm() {
   return (
     <>
       <Form className={styles.form} onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="email" name="email" placeholder="Email" required />
+        <input
+          className={styles.input}
+          type="text"
+          name="name"
+          placeholder="Name"
+          required
+        />
+        <input
+          className={styles.input}
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
         <textarea
+          className={styles.textarea}
           name="message"
           placeholder="Message/Question"
           rows="4"
           required
         />
-        <button type="submit">Submit</button>
+        <button className={styles.button} type="submit">
+          Submit
+        </button>
       </Form>
     </>
   );
