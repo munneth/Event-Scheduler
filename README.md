@@ -2,23 +2,21 @@
 
 A modern contact form application built with Next.js that allows users to send messages via email using Nodemailer.
 
-## 🚀 Features
+## Features
 
 - **Contact Form**: Clean, responsive contact form with name, email, and message fields
 - **Email Integration**: Sends emails using Nodemailer with Ethereal Email (test service)
-- **Modern UI**: Built with Next.js 15 and React 19
 - **Form Validation**: Client-side validation with required fields
-- **Success Feedback**: User-friendly success/error messages
 - **Responsive Design**: Works on desktop and mobile devices
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: Next.js 15, React 19
 - **Styling**: SCSS Modules
 - **Email Service**: Nodemailer with Ethereal Email
 - **Development**: ESLint, TypeScript support
 
-## 📦 Installation
+## Installation
 
 1. **Clone the repository**
 
@@ -42,11 +40,11 @@ A modern contact form application built with Next.js that allows users to send m
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 🔧 Configuration
+## Configuration
 
 ### Email Setup
 
-The application uses Ethereal Email for testing. To configure your own email service:
+The application uses Ethereal Email for testing. To configure your own email service (dont bother with the placeholder, it doesnt work :) ):
 
 1. **Update the transporter configuration** in `src/app/api/nodemailer/route.js`:
 
@@ -68,7 +66,7 @@ The application uses Ethereal Email for testing. To configure your own email ser
    to: "recipient@example.com",
    ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 event-scheduler/
@@ -87,13 +85,13 @@ event-scheduler/
 └── README.md
 ```
 
-## 🎯 Usage
+## Usage
 
 1. **Fill out the form** with your name, email, and message
 2. **Click Submit** to send the email
 3. **Receive confirmation** when the email is sent successfully
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### POST `/api/nodemailer`
 
@@ -118,62 +116,6 @@ Sends an email using the contact form data.
 }
 ```
 
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. **Push to GitHub**
-2. **Connect to Vercel**
-3. **Deploy automatically**
-
-### Other Platforms
-
-1. **Build the application**
-
-   ```bash
-   npm run build
-   ```
-
-2. **Start the production server**
-   ```bash
-   npm start
-   ```
-
-## 🧪 Testing
-
-The application uses Ethereal Email for testing, which provides:
-
-- **Fake SMTP server** for development
-- **Email preview** without sending real emails
-- **No spam** to real email addresses
-
-## 🔒 Environment Variables
-
-For production, consider using environment variables:
-
-```env
-SMTP_HOST=your-smtp-host
-SMTP_PORT=587
-SMTP_USER=your-email@example.com
-SMTP_PASS=your-password
-RECIPIENT_EMAIL=recipient@example.com
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-If you encounter any issues or have questions, please open an issue on GitHub.
-
----
-
-**Built with ❤️ using Next.js and Nodemailer**
