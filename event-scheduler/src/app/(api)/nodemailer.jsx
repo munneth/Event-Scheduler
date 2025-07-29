@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
 // Create a test account or replace with real credentials.
 const transporter = nodemailer.createTransport({
@@ -17,8 +17,8 @@ const transporter = nodemailer.createTransport({
   const info = await transporter.sendMail({
     from: '"Maddison Foo Koch" <maddison53@ethereal.email>',
     to: "munnethgill@gmail.com",
-    subject: "Hello ✔",
-    text: "Name: ${name}\nEmail: ${email}\nMessage: ${message}", // plain‑text body
+    subject: "CONTACT FORM SUBMISSION",
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // plain‑text body
     html: "<b>Hello world?</b>", // HTML body
   });
 
