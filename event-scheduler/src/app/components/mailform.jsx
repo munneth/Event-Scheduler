@@ -42,7 +42,7 @@ export default function MailForm() {
           rows="4"
           required
         />
-        <button type="send">Send</button>
+        <button type="submit">Submit</button>
       </Form>
     </>
   );

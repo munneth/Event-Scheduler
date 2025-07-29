@@ -7,15 +7,15 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // true for 465, false for other ports
   auth: {
-    user: "maddison53@ethereal.email",
-    pass: "jn7jnAPss4f63QBp6D",
+    user: "austyn.vandervort28@ethereal.email",
+    pass: "6NAthWtV6n5zerfKkn",
   },
 });
 
 export async function POST(request) {
   try {
     const { name, email, message } = await request.json();
-    
+
     const info = await transporter.sendMail({
       from: '"Maddison Foo Koch" <maddison53@ethereal.email>',
       to: "munnethgill@gmail.com",
@@ -31,10 +31,10 @@ export async function POST(request) {
     });
 
     console.log("Message sent:", info.messageId);
-    
-    return NextResponse.json({ 
-      success: true, 
-      messageId: info.messageId 
+
+    return NextResponse.json({
+      success: true,
+      messageId: info.messageId,
     });
   } catch (error) {
     console.error("Error sending email:", error);
