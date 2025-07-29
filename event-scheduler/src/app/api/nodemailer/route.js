@@ -13,34 +13,26 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function POST(request) {
-  try {
-    const { name, email, message } = await request.json();
+  const { name, email, message } = await request.json();
 
-    const info = await transporter.sendMail({
-      from: '"Austyn Vandervort" <austyn.vandervort28@ethereal.email>',
-      to: "munnethgill@gmail.com",
-      subject: "CONTACT FORM SUBMISSION",
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // plain‑text body
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `, // HTML body
-    });
+  const info = await transporter.sendMail({
+    from: '"Austyn Vandervort" <austyn.vandervort28@ethereal.email>',
+    to: "munnethgill@gmail.com",
+    subject: "CONTACT FORM SUBMISSION",
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // plain‑text body
+    html: `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message}</p>
+    `, // HTML body
+  });
 
-    console.log("Message sent:", info.messageId);
+  console.log("Message sent:", info.messageId);
 
-    return NextResponse.json({
-      success: true,
-      messageId: info.messageId,
-    });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    return NextResponse.json(
-      { success: false, error: "Failed to send email" },
-      { status: 500 }
-    );
-  }
+  return new Response("", {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+  });
 }
